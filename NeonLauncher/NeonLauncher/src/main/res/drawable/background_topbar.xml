@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NeonLauncher: topbar with bottom neon cyan underline -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- main dark fill -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#080810" />
+        </shape>
+    </item>
+    <!-- neon cyan bottom line -->
+    <item android:top="38dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#00F0FF" />
+            <size android:height="1dp" />
+        </shape>
+    </item>
+</layer-list>

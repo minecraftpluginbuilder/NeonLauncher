@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    NeonLauncher — activity_launcher.xml
+    LUNAR CLIENT-STYLE layout:
+    TOP: logo | Home | Servers | Settings | About | Account | Installer | [×]
+    BODY: fragment container
+    BOTTOM: progress bar
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_app"
+    tools:ignore="ContentDescription">
+
+    <!-- Full-screen background image (custom backgrounds) -->
+    <ImageView
+        android:id="@+id/background_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.15"
+        android:scaleType="centerCrop" />
+
+    <!-- ════════════════════════════════════════════════════
+         LUNAR CLIENT TOP NAV BAR
+         ════════════════════════════════════════════════════ -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/background_topbar"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- NeonLauncher icon (tappable → about) -->
+        <ImageView
+            android:id="@+id/nav_logo"
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher_icon_neon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- App wordmark -->
+        <com.neonlauncher.app.ui.view.AnimTextView
+            android:id="@+id/app_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:background="?android:attr/selectableItemBackground"
+            android:letterSpacing="0.06"
+            android:textColor="#00F0FF"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nav_logo"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- ── NAV LINKS (Lunar Client style horizontal tabs) ── -->
+        <LinearLayout
+            android:id="@+id/nav_links"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/nav_right_group"
+            app:layout_constraintStart_toEndOf="@id/app_title_text"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- HOME -->
+            <TextView
+                android:id="@+id/nav_home"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/nav_home"
+                android:textColor="#00F0FF"
+                android:textSize="@dimen/_11ssp"
+                android:textStyle="bold"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <!-- SERVERS -->
+            <TextView
+                android:id="@+id/nav_servers"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/nav_servers"
+                android:textColor="#99E0FEFF"
+                android:textSize="@dimen/_11ssp"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <!-- SETTINGS -->
+            <TextView
+                android:id="@+id/nav_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/nav_settings"
+                android:textColor="#99E0FEFF"
+                android:textSize="@dimen/_11ssp"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <!-- ABOUT -->
+            <TextView
+                android:id="@+id/nav_about"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/nav_about"
+                android:textColor="#99E0FEFF"
+                android:textSize="@dimen/_11ssp"
+                android:background="?android:attr/selectableItemBackground" />
+
+            <!-- INSTALLER -->
+            <TextView
+                android:id="@+id/nav_installer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:text="@string/nav_installer"
+                android:textColor="#99E0FEFF"
+                android:textSize="@dimen/_11ssp"
+                android:background="?android:attr/selectableItemBackground" />
+
+        </LinearLayout>
+
+        <!-- RIGHT GROUP: Account + Download + Close -->
+        <LinearLayout
+            android:id="@+id/nav_right_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Account button (avatar pill) -->
+            <com.neonlauncher.app.ui.layout.AnimRelativeLayout
+                android:id="@+id/nav_account_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:background="@drawable/background_item_selected"
+                android:paddingHorizontal="@dimen/_8sdp"
+                app:ripple_for_relative="true">
+
+                <ImageView
+                    android:id="@+id/nav_account_avatar"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_help"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/nav_account_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/nav_account_avatar"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:maxWidth="@dimen/_70sdp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textColor="#00F0FF"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    tools:text="Steve" />
+
+            </com.neonlauncher.app.ui.layout.AnimRelativeLayout>
+
+            <!-- Download button -->
+            <ImageButton
+                android:id="@+id/download_button"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/_6sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_download"
+                app:tint="#00F0FF" />
+
+            <!-- Settings gear -->
+            <ImageButton
+                android:id="@+id/setting_button"
+                android:layout_width="@dimen/_32sdp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/_6sdp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu_settings"
+                app:tint="#99E0FEFF" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Active nav indicator line (moves under selected tab) -->
+    <View
+        android:id="@+id/nav_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/neon_divider"
+        app:layout_constraintTop_toBottomOf="@id/top_layout" />
+
+    <!-- ════════════════════════════════════════════════════
+         MAIN CONTENT FRAGMENT CONTAINER
+         ════════════════════════════════════════════════════ -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/container_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/progress_shadow"
+        app:layout_constraintTop_toBottomOf="@id/nav_indicator" />
+
+    <!-- Progress shadow + bar -->
+    <View
+        android:id="@+id/progress_shadow"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_4sdp"
+        android:background="@drawable/shadow_gradient_up"
+        app:layout_constraintBottom_toTopOf="@+id/progress_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.kdt.mcgui.ProgressLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Notice overlay (kept for compatibility) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notice_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_12sdp"
+        android:background="@drawable/background_card"
+        android:padding="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/notice_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        app:layout_constraintVertical_bias="0.333">
+
+        <TextView
+            android:id="@+id/notice_title_view"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#00F0FF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@+id/notice_got_button"
+            app:layout_constraintTop_toBottomOf="@+id/notice_title_view">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/notice_message_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textIsSelectable="true" />
+                <TextView
+                    android:id="@+id/notice_date_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:gravity="end"
+                    android:textColor="#5500F0FF" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.neonlauncher.app.ui.view.AnimButton
+            android:id="@+id/notice_got_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/generic_ok"
+            android:textColor="#0A0A0F"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/notice_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <ImageView
+        android:id="@+id/hair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_crack" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
