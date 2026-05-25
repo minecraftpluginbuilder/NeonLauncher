@@ -235,4 +235,125 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/play_layout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3.5"
+        app:layout_constraintStart_toEndOf="@+id/launcher_menu"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/play_main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CC0A0A0F">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/play_buttons_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <include
+                    android:id="@+id/view_account"
+                    layout="@layout/view_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/version"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.neonlauncher.app.ui.layout.AnimRelativeLayout
+                    android:id="@+id/version"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="@drawable/background_item"
+                    android:paddingHorizontal="@dimen/_8sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/play_button"
+                    app:layout_constraintEnd_toStartOf="@+id/manager_profile_button"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <ImageView
+                        android:id="@+id/version_icon"
+                        android:layout_width="@dimen/_32sdp"
+                        android:layout_height="@dimen/_32sdp"
+                        android:layout_centerVertical="true"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_minecraft"
+                        tools:ignore="ContentDescription" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:layout_toEndOf="@id/version_icon"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/version_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:singleLine="true"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="@string/version_no_versions" />
+
+                        <TextView
+                            android:id="@+id/version_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:textColor="#5500F0FF"
+                            android:textSize="@dimen/_10sdp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </com.neonlauncher.app.ui.layout.AnimRelativeLayout>
+
+                <ImageButton
+                    android:id="@+id/manager_profile_button"
+                    android:layout_width="@dimen/_42sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_setting"
+                    app:tint="#00F0FF"
+                    app:layout_constraintBottom_toTopOf="@+id/play_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/version"
+                    tools:ignore="ContentDescription" />
+
+                <com.neonlauncher.app.ui.view.AnimButton
+                    android:id="@+id/play_button"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_42sdp"
+                    android:layout_marginHorizontal="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/background_menu_element"
+                    android:text="@string/main_launch"
+                    android:textAllCaps="true"
+                    android:textColor="@color/background_app"
+                    android:textStyle="bold"
+                    android:elevation="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
