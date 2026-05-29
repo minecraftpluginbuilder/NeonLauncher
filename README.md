@@ -1,4 +1,4 @@
-# Neon Launcher
+## Neon Launcher
 
 A fast, stable, and open-source Minecraft launcher focused on performance and a clean user experience.
 
@@ -48,3 +48,11 @@ Contributions are welcome.
 ## Community
 
 If you want Neon Launcher to succeed, star the project and share feedback.
+
+## Developer Note
+
+While searching file u can found zailth reborn devlopers name it's a easter egg I added to tell that I got inspiration from zailth reborn and please also support zailth reborn devloper also 
+
+# other things 
+I am working alone in this project so update not gonna be so consistent Neon-Launcher also have a official website 
+Link: https://neonlauncher.netlify.app/
