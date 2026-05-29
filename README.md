@@ -39,11 +39,9 @@ Contributions are welcome.
 
 ## Roadmap
 
-- [ ] Initial launcher skeleton
-- [ ] Authentication flow
-- [ ] Game installation management
-- [ ] Instance configuration
-- [ ] Release first public alpha
+-[✔️] Backend System
+-[✔️] ui
+-[❌] compiling
 
 ## Community
 
@@ -51,8 +49,9 @@ If you want Neon Launcher to succeed, star the project and share feedback.
 
 ## Developer Note
 
-While searching file u can found zailth reborn devlopers name it's a easter egg I added to tell that I got inspiration from zailth reborn and please also support zailth reborn devloper also 
+While searching file you guy's can found zailth reborn devlopers name it's a easter egg I added to tell that I got inspiration from zailth reborn and please also support zailth reborn devloper also 
 
 # other things 
 I am working alone in this project so update not gonna be so consistent Neon-Launcher also have a official website 
 Link: https://neonlauncher.netlify.app/
+Guy's alpha version will come on mid june
